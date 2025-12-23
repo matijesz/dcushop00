@@ -33,18 +33,21 @@
 
     </section>
     <main>
+        <p style="text-align: center; margin-top: 10px;">OSTATNIE</p>
         <section class="lewo">
     <section class="produkt1">
-        <img src="image2.jpg" alt="zdjecie" class="zdjecielewo">
+        
+        <img src="okladka1.jpg" alt="zdjecie" class="zdjecielewo">
+        <p class="nazwa">CLD-01</p>
     </section>
     <section class="produkt2">
-<img src="image2.jpg" alt="zdjecie" class="zdjecielewo">
+<img src="okladka1.jpg" alt="zdjecie" class="zdjecielewo">
     </section>
     <section class="produkt3">
-<img src="image2.jpg" alt="zdjecie" class="zdjecielewo">
+<img src="okladka1.jpg" alt="zdjecie" class="zdjecielewo">
     </section>
     <section class="produkt3">
-<img src="image2.jpg" alt="zdjecie" class="zdjecielewo">
+<img src="okladka1.jpg" alt="zdjecie" class="zdjecielewo">
     </section>
     </section>
     
@@ -83,18 +86,85 @@
     let ZamMenu = document.getElementsByClassName('ZamTelMenu')[0];
     let header = document.getElementsByClassName('realheader')[0];
     let pomoc = document.getElementsByClassName('pomocHeader')[0];
+    let promka = document.getElementsByTagName("header")[0];
+    let body = document.getElementsByTagName("body")[0];
+    let lewozdjecia = document.getElementsByClassName("zdjecielewo")[0];
+    let pheader = document.getElementsByClassName("pHeader")[0];
+    
+    lewozdjecia.addEventListener("click", function() {
+    
+    lewozdjecia.classList.add('klikniety');
+
+    
+    setTimeout(() => {
+        window.location.href = "index2.html";
+    }, 200); 
+});
+    
+
+    promka.addEventListener("click" , function(){
+        window.scrollBy({
+            top: 45,
+            behavior: 'smooth'
+        });
+    });
+    pheader.addEventListener("click", function(){
+        window.scrollBy({
+            top: -5000,
+            behavior:  'smooth'
+        });
+    });
+    
+
     hamburger.addEventListener("click", function(){
+        setTimeout(() => {
         menu.classList.toggle('active');
         ZamMenu.classList.toggle('active');
         hamburger.style.visibility = "hidden";
         
-        pomoc.style.visibility = "hidden";
+        pomoc.style.visibility = "hidden";;
+    }, 150); 
+        
     });
     ZamMenu.addEventListener("click", function(){
         hamburger.style.visibility = "visible";
         menu.classList.toggle('active');
         ZamMenu.classList.toggle('active');
         pomoc.style.visibility = "visible";
+    });
+    let zagrajmuzyke = document.getElementsByClassName('zdjecie')[0];
+    let zagrajmuzyke2 = document.getElementsByClassName('zdjecie')[1];
+    let cld00 = new Audio('CLD-00.mp3');
+    let soul = new Audio('SOUL-00.mp3');
+    zagrajmuzyke.addEventListener("click", function(){
+        if(cld00.paused) {
+            cld00.play();
+            zagrajmuzyke.style.opacity = "80%";
+            zagrajmuzyke2.style.opacity = "100%";
+            soul.pause();
+        }
+        else {
+            cld00.pause();
+            soul.pause();
+            cld00.currentTime = 0;
+            zagrajmuzyke.style.opacity = "100%";
+            zagrajmuzyke2.style.opacity = "100%";
+        }
+    });
+    zagrajmuzyke2.addEventListener("click", function(){
+        if(soul.paused) {
+            soul.play();
+            zagrajmuzyke2.style.opacity = "80%";
+            zagrajmuzyke.style.opacity = "100%";
+            cld00.pause();
+        }
+        else {
+            soul.pause();
+            cld00.pause();
+            soul.currentTime = 0;
+            zagrajmuzyke2.style.opacity = "100%";
+            zagrajmuzyke.style.opacity = "100%";
+        }
     });
 </script>
 </html>
