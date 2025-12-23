@@ -20,6 +20,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 10;
 }
 
 p {
@@ -35,10 +37,12 @@ p {
     background-color: black;
     color:#f0f0ea;
     display: flex;
+    z-index: 9999;
     align-items: center;
     justify-content: space-between;
     position:sticky;
     top: 0;
+
     
 }
 .realheader a{
@@ -60,6 +64,7 @@ p {
 }
 .listaTel {
     display: none;
+    top: 45px;
 }
 .pomocHeader {
     display: none;
@@ -102,7 +107,8 @@ p {
 .lewo {
     display: flex;
     
-    margin-top: 10px;
+    margin: 10px;
+    
     
     
     
@@ -111,8 +117,8 @@ p {
 }
 .zdjecielewo {
     height: 50vh;
-    margin: auto;
-    max-width: 100%;
+    
+    
 }
 .prawo {
     
@@ -132,10 +138,23 @@ p {
     
     
 }
+.nazwa {
+    font-size: 80%;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0;
+}
 .zdjecielewo {
-    height: 45vh;
-    min-width: 260px;
+    height: 200px;
+    min-width: 100%;
     flex-shrink: 0;
+    border-radius: 10%;
+    transform: scale(1);
+    transition: transform 0.1s ease-in-out;
+    
+}
+.zdjecielewo:active {
+    transform:  scale(0.95);
 }
 .lewo {
     overflow-x: auto;
@@ -144,23 +163,41 @@ p {
     
     
 }
+
+.ListaProduktow {
+    display: flex;
+}
+
+
+
+
 .pomocHeader {
     display: flex;
     min-width: 100px;
 }
 .realheader {
     justify-content:space-between;
+    
 }
 .pPromka {
     font-size: 80%;
 }
 .realheader img {
     display: flex;
+    transform: scale(1);
+    transition: transform 0.1s ease-in-out;
+
     
 }
+.realheader img:active {
+    transform: scale(1.3);
+}
+
+
+
 ul {
     list-style-type: none;
-    
+    margin-top: 70px;
     color:#f0f0ea;
 }
 .listaTel {
@@ -174,7 +211,7 @@ li {
     width: 60%;
     height: 100vh;
     position: fixed;
-    z-index: 9999;
+    z-index: 9998;
     top: 45px;
     right: 0;
     transform: translateX(100%);
@@ -203,6 +240,7 @@ li {
 }
 .TelMenu.active {
 transform: translateX(0%);
+height: 100vh;
 }
 
 }
